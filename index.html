@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حكاية وعبرة | كل حكاية تعلّمنا قيمة</title>
+<meta name="description" content="تطبيق ديني تعليمي للأطفال: قصص القرآن والسيرة بأسلوب ممتع، أنشطة وتحديات ونجوم.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="topbar"><div class="topbar-in">
+<div class="brand"><div class="brand-mark">🌙</div><div><b>حكاية وعبرة</b><small>كل حكاية تعلّمنا قيمة ✨</small></div></div>
+<div class="top-actions">
+<span class="pill">👋 أهلًا <b id="helloName">صديقي</b></span>
+<span class="pill stars-pill">⭐ <b id="starsCount">0</b></span>
+</div></div></div>
+
+<div class="app">
+<!-- الرئيسية -->
+<section id="v-home" class="view active">
+<div class="hero">
+<div class="mascot">🦉</div>
+<div class="hero-txt">
+<h1 id="heroHello">مرحبًا صديقي! 🌙</h1>
+<p>أنا <b>سُهيل</b> 🦉 رفيقك في رحلة الحكايات! هيا نكتشف حكاية جديدة ونجمع النجوم ⭐</p>
+<button class="btn btn-gold btn-big" onclick="nav('lib')">🚀 هيا نكتشف حكاية</button>
+</div></div>
+
+<div class="section"><h2>📖 حكاية اليوم</h2><div class="card" id="storyDay"></div></div>
+<div class="section"><div class="cards two">
+<div><h2>💎 قيمة اليوم</h2><div class="card" id="valDay" style="background:linear-gradient(180deg,#fff,#fdf0c8)"></div></div>
+<div><h2>🎯 تحدي اليوم</h2><div class="card" id="chDay" style="background:linear-gradient(180deg,#fff,#e6f5ee)"></div></div>
+</div></div>
+<div class="section"><h2>🌟 تقدمي</h2><div class="card"><div class="progress-track"><div class="progress-fill" id="progFill" style="width:0%"></div></div><p id="progTxt" style="margin:8px 0 0"></p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+<button class="btn btn-primary" onclick="nav('lib')">📚 القصص</button>
+<button class="btn" onclick="nav('ch')">🎮 التحديات</button>
+<button class="btn btn-gold" onclick="nav('ach')">🏆 إنجازاتي</button>
+</div></div></div>
+</section>
+
+<!-- المكتبة -->
+<section id="v-lib" class="view">
+<div class="section"><h2>📚 مكتبة الحكايات</h2>
+<div class="search-row"><input id="q" placeholder="🔍 ابحث عن قصة... (نوح، الصدق، الرحمة)"></div>
+<div class="filters">
+<select id="fCat"><option value="all">كل التصنيفات</option><option value="prophets">قصص الأنبياء</option><option value="seerah">السيرة النبوية</option><option value="sahaba">قصص الصحابة</option><option value="values">الأخلاق والقيم</option></select>
+<select id="fAge"><option value="all">كل الأعمار</option><option value="4-6">4-6 سنوات</option><option value="4-9">6-9 سنوات</option></select>
+<button class="btn" id="fFav">🤍 المفضلة فقط</button>
+</div>
+<div class="story-grid" id="libGrid"></div>
+</div></section>
+
+<!-- القارئ -->
+<section id="v-reader" class="view"><div class="section"><div class="reader" id="readerBox"></div></div></section>
+
+<!-- التحديات -->
+<section id="v-ch" class="view"><div class="section"><h2>🎯 تحديات الأبطال</h2>
+<p id="chCount" class="meta"></p><div class="cards two" id="chGrid"></div>
+<div class="card" style="margin-top:12px;background:#fff8e6">💛 التحديات للتشجيع والفرح فقط — لا نحزن إذا لم نكمل تحديًا اليوم، فغدًا فرصة جديدة! ولا يحكم التحدي على تدين أحد.</div>
+</div></section>
+
+<!-- الإنجازات -->
+<section id="v-ach" class="view"><div class="section"><h2>🏆 إنجازاتي</h2>
+<div class="card"><b id="achStars"></b><div class="progress-track" style="margin-top:8px"><div class="progress-fill" id="achProg"></div></div></div>
+<h2 style="margin-top:16px">🎖️ شاراتي</h2><div class="badges-grid" id="badgeGrid"></div>
+<h2 style="margin-top:16px">📖 قصصي المكتملة</h2><div class="card" id="doneTable"></div>
+</div></section>
+
+<!-- الأهل -->
+<section id="v-parent" class="view"><div class="section"><h2>👨‍👩‍👧 منطقة الأهل</h2>
+<div id="gate" class="card gate"><div style="font-size:50px">🔐</div><h3>بوابة الأهل</h3><p class="meta">هذه المنطقة للكبار فقط</p><p><b id="gateQ"></b></p>
+<input id="gateA" type="number" placeholder="الإجابة" style="border:2px solid var(--line);border-radius:12px;padding:10px;font-family:inherit">
+<button class="btn btn-primary" onclick="tryGate()">دخول</button></div>
+<div id="parentIn" style="display:none">
+<div class="parent-box"><h3>👶 ملف الطفل ومستوى المحتوى</h3>
+<div class="filters">الاسم: <input id="pName"> العمر: <input id="pAge" type="number" min="4" max="9" style="width:80px">
+<select id="pLevel"><option value="all">كل المحتوى</option><option value="small">مبسّط (4-6)</option><option value="big">متقدم (6-9)</option></select></div>
+<div class="filters">حجم الخط: <input id="pFs" type="number" min="14" max="26" style="width:80px">
+<label><input id="pSound" type="checkbox"> 🔊 تفعيل الصوت</label>
+<button class="btn btn-primary" onclick="saveParent()">💾 حفظ</button>
+<button class="btn" onclick="resetAll()">↺ مسح التقدم</button></div></div>
+<div class="parent-box"><h3>📊 متابعة التعلم</h3><div id="pStats"></div>
+<h3>💎 القيم التي تعلمها</h3><div id="pVals"></div>
+<h3>❓ نتائج الأنشطة</h3><div id="pQuiz"></div>
+<h3>🎯 التحديات المنجزة</h3><div id="pCh"></div></div>
+<div class="parent-box"><h3>🏠 أنشطة أسرية مقترحة</h3><ul id="pActs"></ul>
+<p class="meta">💡 نصيحة: امدحوا المحاولة لا النتيجة، ولا تقارنوا الطفل بغيره. المكافآت هنا رمزية وتشجيعية فقط.</p></div>
+</div></div></section>
+</div>
+
+<nav class="bottom-nav">
+<button data-v="home" class="active"><span>🏠</span>الرئيسية</button>
+<button data-v="lib"><span>📚</span>القصص</button>
+<button data-v="ch"><span>🎯</span>التحديات</button>
+<button data-v="ach"><span>🏆</span>إنجازاتي</button>
+<button data-v="parent"><span>👨‍👩‍👧</span>للأهل</button>
+</nav>
+<div class="toast" id="toast"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
