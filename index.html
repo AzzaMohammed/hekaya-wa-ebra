@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>حكاية وعبرة | كل حكاية تعلّمنا قيمة</title>
 <meta name="description" content="تطبيق ديني تعليمي للأطفال: قصص القرآن والسيرة بأسلوب ممتع، أنشطة وتحديات ونجوم.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2e9e77">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="حكاية وعبرة">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -39,6 +47,7 @@
 <div class="src-card-txt"><h3>مصادر الحكايات</h3><p class="meta">كل حكاية لها مصدر موثوق — آيات القرآن الكريم بأرقامها، وأحاديث النبي ﷺ بنصوصها ومراجعها، ومراجع السيرة، تقدر تتحقق منها بنفسك!</p></div>
 <div class="src-card-go">📂 افتح صفحة المصادر</div>
 </div></a></div>
+<div class="section" style="text-align:center"><button class="btn btn-soft" id="installBtn" style="display:none">📱 تثبيت التطبيق على الشاشة الرئيسية</button></div>
 <div class="section"><h2>🌟 تقدمي</h2><div class="card"><div class="progress-track"><div class="progress-fill" id="progFill" style="width:0%"></div></div><p id="progTxt" style="margin:8px 0 0"></p>
 <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
 <button class="btn btn-primary" onclick="nav('lib')">📚 القصص</button>
@@ -107,5 +116,8 @@
 <div class="toast" id="toast"></div>
 <script src="data.js"></script>
 <script src="app.js"></script>
+<script>
+if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("service-worker.js").catch(function(e){console.warn("تعذر تسجيل service worker",e);});});}
+</script>
 </body>
 </html>
