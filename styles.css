@@ -99,3 +99,32 @@ th{background:#f3ecd6}
 .toast{position:fixed;bottom:90px;right:50%;transform:translateX(50%);background:#2b3a34;color:#fff;padding:12px 24px;border-radius:999px;font-weight:800;z-index:99;display:none;box-shadow:var(--shadow)}
 .toast.show{display:block;animation:fade .3s}
 @media(max-width:640px){.hero{padding:18px}.mascot{width:100px;height:100px;font-size:60px}.btn-big{font-size:18px}}
+
+/* بطاقة مصادر الحكايات في الرئيسية */
+.src-card{display:block;text-decoration:none;color:inherit;background:linear-gradient(135deg,#fffdf8,#edf7f1);border-color:var(--green)}
+.src-card:hover{border-color:var(--gold)}
+.src-card-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.src-card-ico{width:64px;height:64px;flex-shrink:0;border-radius:20px;background:linear-gradient(135deg,var(--green),var(--green-d));display:grid;place-items:center;font-size:34px;box-shadow:var(--shadow)}
+.src-card-txt{flex:1;min-width:200px}
+.src-card-txt h3{margin:0 0 4px;font-size:20px;color:var(--green-d)}
+.src-card-go{background:var(--gold-soft);border:2px solid var(--gold);border-radius:999px;padding:8px 16px;font-weight:800;font-size:15px;color:#7a5b00;white-space:nowrap}
+
+/* صفحة مصادر الحكايات */
+.src-hero{background:linear-gradient(135deg,#fffdf8,#eef7f2)}
+.src-hero h1{font-size:clamp(24px,4.5vw,34px)}
+.src-nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.src-nav a{text-decoration:none;font-weight:800;font-size:15px;background:#fff;border:2px solid var(--line);border-radius:999px;padding:8px 16px;color:var(--green-d);transition:.18s}
+.src-nav a:hover{background:var(--green);color:#fff;border-color:var(--green);transform:translateY(-2px)}
+.src-list{margin:8px 0;padding:0 18px 0 0}
+.src-list li{margin:8px 0;line-height:2}
+.src-quote{background:#fff;border:2px dashed var(--line);border-radius:16px;padding:12px 14px;line-height:2.2;font-size:16px;color:#33443c;margin:10px 0}
+.src-facts{display:grid;gap:6px;font-size:15px;margin:10px 0}
+.src-facts b{color:var(--green-d)}
+.src-link{display:inline-block;background:#e6f5ee;border:1.5px solid var(--green);color:var(--green-d);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:800;text-decoration:none;margin:6px 6px 0 0;transition:.18s}
+.src-link:hover{background:var(--green);color:#fff;transform:translateY(-2px)}
+.src-note{background:#fff8e6;border:2px dashed var(--gold);border-radius:16px;padding:12px 14px;line-height:2}
+.src-story{display:flex;flex-direction:column;gap:8px}
+.src-story-head{display:flex;gap:10px;align-items:center}
+.src-story-art{font-size:42px}
+.src-story-src{background:#f7f3e6;border:1.5px solid var(--line);border-radius:14px;padding:8px 12px;font-size:14.5px;line-height:1.9}
+.src-story-links{display:flex;flex-wrap:wrap}
