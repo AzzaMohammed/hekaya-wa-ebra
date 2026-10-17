@@ -239,3 +239,9 @@ window.doChallenge=doChallenge;window.toggleFav=toggleFav;window.nav=nav;window.
 window.speakCurrent=speakCurrent;window.tryGate=tryGate;window.saveParent=saveParent;window.resetAll=resetAll;
 document.querySelectorAll(".bottom-nav button").forEach(b=>b.onclick=()=>{stopSpeak();nav(b.dataset.v);if(b.dataset.v==="lib")renderLib();if(b.dataset.v==="ch")renderCh();});
 bindLib();renderTop();renderHome();renderLib();renderCh();newGate();
+
+// رابط مباشر: index.html?story=<id> يفتح القصة فورًا (يُستخدم من صفحة مصادر الحكايات)
+try{
+ const sp=new URLSearchParams(location.search).get("story");
+ if(sp&&STORIES.some(s=>s.id===sp))openStory(sp);
+}catch(e){}
