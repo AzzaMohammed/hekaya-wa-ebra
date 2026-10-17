@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "حكاية وعبرة | كل حكاية تعلّمنا قيمة",
+  "short_name": "حكاية وعبرة",
+  "description": "تطبيق تعليمي ديني للأطفال (4-9 سنوات): قصص القرآن والسيرة بأسلوب ممتع، مع أنشطة وتحديات ونجوم، وكل حكاية لها مصدر موثوق يمكن التحقق منه.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fdf6e7",
+  "theme_color": "#2e9e77",
+  "categories": ["education", "kids"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
