@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>مصادر الحكايات | حكاية وعبرة</title>
 <meta name="description" content="مصادر كل قصة في تطبيق حكاية وعبرة: آيات القرآن الكريم بأرقامها، أحاديث نبوية بنصوصها ومراجعها ودرجاتها، ومراجع السيرة النبوية، ومراجع إضافية موثوقة بروابط مباشرة.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2e9e77">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="حكاية وعبرة">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -225,6 +233,9 @@ const LINKS={
    '<a class="btn btn-primary" href="index.html?story='+s.id+'" style="display:inline-block;text-decoration:none">📖 اقرأ القصة</a>'+
   '</div>';}).join("");
 })();
+</script>
+<script>
+if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("service-worker.js").catch(function(e){console.warn("تعذر تسجيل service worker",e);});});}
 </script>
 </body>
 </html>
