@@ -245,3 +245,20 @@ try{
  const sp=new URLSearchParams(location.search).get("story");
  if(sp&&STORIES.some(s=>s.id===sp))openStory(sp);
 }catch(e){}
+
+// PWA: زر التثبيت — يظهر فقط عندما يكون التثبيت متاحًا فعليًا (لا زر وهمي)
+(function(){
+ const btn=$("installBtn");if(!btn)return;
+ const standalone=(window.matchMedia&&window.matchMedia("(display-mode: standalone)").matches)||window.navigator.standalone===true;
+ if(standalone)return; // التطبيق مثبت بالفعل
+ const iOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+ let deferred=null;
+ window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;btn.style.display="inline-block";});
+ if(iOS)btn.style.display="inline-block"; // على الآيفون: يشرح الخطوات الحقيقية في «المشاركة ← إضافة إلى الشاشة الرئيسية»
+ btn.onclick=async ()=>{
+  if(deferred){deferred.prompt();try{const r=await deferred.userChoice;if(r&&r.outcome==="accepted")toast("🎉 ستظهر أيقونة التطبيق في شاشتك الرئيسية!");}catch(e){}deferred=null;btn.style.display="none";}
+  else if(iOS){toast("📱 على الآيفون: زر المشاركة ⬆️ ثم «إضافة إلى الشاشة الرئيسية»");}
+  else{toast("التثبيت غير متاح في هذا المتصفح — أضف الصفحة إلى المفضلة 💛");btn.style.display="none";}
+ };
+ window.addEventListener("appinstalled",()=>{btn.style.display="none";toast("🎉 تم تثبيت التطبيق! أحسنت");});
+})();
